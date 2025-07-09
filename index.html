@@ -1,59 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTR Arrival Board</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MTR Arrival Board</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- Header with controls -->
-        <header class="app-header">
-            <div class="header-content">
-                <h1>MTR Arrival Board</h1>
-                <div class="station-selector">
-                    <div class="form-group">
-                        <label for="line-select" class="form-label">Select Line:</label>
-                        <select id="line-select" class="form-control">
-                            <option value="">Choose a line...</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="station-select" class="form-label">Select Station:</label>
-                        <select id="station-select" class="form-control" disabled>
-                            <option value="">Choose a station...</option>
-                        </select>
-                    </div>
-                    <button id="refresh-btn" class="btn btn--primary" disabled>
-                        <span id="refresh-text">Get Arrival Time</span>
-                    </button>
-                </div>
-            </div>
-        </header>
+  <div class="container">
+    <header class="app-header">
+      <h1>MTR Arrival Board</h1>
+      <div class="station-selector">
+        <label>Line:
+          <select id="line-select"></select>
+        </label>
+        <label>Station:
+          <select id="station-select" disabled></select>
+        </label>
+        <button id="refresh-btn" disabled>Get Arrival Time</button>
+      </div>
+    </header>
 
-        <!-- Main arrival board display -->
-        <main class="arrival-board">
-            <div class="board-header">
-                <div class="station-info">
-                    <div class="station-name" id="current-station">Select a station</div>
-                    <div class="line-info" id="current-line"></div>
-                </div>
-                <div class="time-info">
-                    <div class="current-time" id="current-time"></div>
-                    <div class="last-update" id="last-update"></div>
-                </div>
-            </div>
-
-            <div class="board-content" id="board-content">
-                <div class="welcome-message">
-                    <h2>Welcome to MTR Arrival Board</h2>
-                    <p>Select a line and station to view real-time train arrival information</p>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script src="app.js"></script>
+    <main class="arrival-board">
+      <div class="board-header">
+        <div>
+          <div id="current-station" class="station-name">Select a station</div>
+          <div id="current-line" class="line-info"></div>
+        </div>
+        <div class="time-info">
+          <div id="current-time" class="current-time"></div>
+          <div id="last-update" class="last-update"></div>
+        </div>
+      </div>
+      <div id="board-content">
+        <div class="welcome-message">
+          <h2>Welcome to MTR Arrival Board</h2>
+          <p>Select a line and station to view real-time arrivals</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
