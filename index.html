@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTR Arrival Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with controls -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>MTR Arrival Board</h1>
+                <div class="station-selector">
+                    <div class="form-group">
+                        <label for="line-select" class="form-label">Select Line:</label>
+                        <select id="line-select" class="form-control">
+                            <option value="">Choose a line...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="station-select" class="form-label">Select Station:</label>
+                        <select id="station-select" class="form-control" disabled>
+                            <option value="">Choose a station...</option>
+                        </select>
+                    </div>
+                    <button id="refresh-btn" class="btn btn--primary" disabled>
+                        <span id="refresh-text">Refresh</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main arrival board display -->
+        <main class="arrival-board">
+            <div class="board-header">
+                <div class="station-info">
+                    <div class="station-name" id="current-station">Select a station</div>
+                    <div class="line-info" id="current-line"></div>
+                </div>
+                <div class="time-info">
+                    <div class="current-time" id="current-time"></div>
+                    <div class="last-update" id="last-update"></div>
+                </div>
+            </div>
+
+            <div class="board-content">
+                <!-- Loading state -->
+                <div id="loading-state" class="loading-state hidden">
+                    <div class="loading-spinner"></div>
+                    <p>Loading train information...</p>
+                </div>
+
+                <!-- No selection state -->
+                <div id="no-selection" class="no-selection">
+                    <p>Please select a line and station to view train arrivals</p>
+                </div>
+
+                <!-- Error state -->
+                <div id="error-state" class="error-state hidden">
+                    <p id="error-message">Unable to load train information. Please try again.</p>
+                </div>
+
+                <!-- Train data display -->
+                <div id="train-data" class="train-data hidden">
+                    <div class="platform-section">
+                        <div class="platform-header">
+                            <h3>Platform 1 - UP</h3>
+                        </div>
+                        <div class="train-list" id="platform-up">
+                            <!-- Train entries will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="platform-section">
+                        <div class="platform-header">
+                            <h3>Platform 2 - DOWN</h3>
+                        </div>
+                        <div class="train-list" id="platform-down">
+                            <!-- Train entries will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Real-time data from MTR Open Data API</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
